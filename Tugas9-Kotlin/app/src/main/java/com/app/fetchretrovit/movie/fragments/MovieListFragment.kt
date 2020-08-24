@@ -5,9 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.app.fetchretrovit.R
 import com.app.fetchretrovit.movie.recycleview.MovieRecycleView
@@ -33,9 +36,8 @@ class MovieListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val gridRecycleView = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-        movieListRecycleView.layoutManager = gridRecycleView
-
+        movieListRecycleView.layoutManager
+        movieListRecycleView.layoutManager = GridLayoutManager(this.context,2)
         movieViewModel.allMovie.observe(viewLifecycleOwner, Observer {
             movieRecycleView = MovieRecycleView(it)
             movieListRecycleView.adapter = movieRecycleView
