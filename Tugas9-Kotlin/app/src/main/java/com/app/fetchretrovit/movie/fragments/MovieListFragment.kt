@@ -36,7 +36,6 @@ class MovieListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        movieListRecycleView.layoutManager
         movieListRecycleView.layoutManager = GridLayoutManager(this.context,2)
         movieViewModel.allMovie.observe(viewLifecycleOwner, Observer {
             movieRecycleView = MovieRecycleView(it)
